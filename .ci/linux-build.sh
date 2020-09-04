@@ -48,6 +48,10 @@ else
     OPTS="$OPTS -Dexamples=all"
 fi
 
+if [ -n "$SANITIZE" ]; then
+    OPTS="$OPTS -Db_sanitize=$SANITIZE -Db_lundef=false"
+fi
+
 OPTS="$OPTS --default-library=$DEF_LIB"
 OPTS="$OPTS --buildtype=debugoptimized"
 meson build --werror $OPTS

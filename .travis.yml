@@ -34,6 +34,22 @@ jobs:
   - env: DEF_LIB="static"
     arch: amd64
     compiler: gcc
+  - env: DEF_LIB="static" SANITIZE=address
+    arch: amd64
+    compiler: gcc
+    addons:
+      apt:
+        packages:
+          - *required_packages
+          - [libasan4]
+  - env: DEF_LIB="shared" SANITIZE=address
+    arch: amd64
+    compiler: gcc
+    addons:
+      apt:
+        packages:
+          - *required_packages
+          - [libasan4]
   - env: DEF_LIB="shared" RUN_TESTS=1
     arch: amd64
     compiler: gcc
@@ -49,6 +65,22 @@ jobs:
   - env: DEF_LIB="static"
     arch: amd64
     compiler: clang
+  - env: DEF_LIB="static" SANITIZE=address
+    arch: amd64
+    compiler: clang
+    addons:
+      apt:
+        packages:
+          - *required_packages
+          - [libasan4]
+  - env: DEF_LIB="shared" SANITIZE=address
+    arch: amd64
+    compiler: clang
+    addons:
+      apt:
+        packages:
+          - *required_packages
+          - [libasan4]
   - env: DEF_LIB="shared" RUN_TESTS=1
     arch: amd64
     compiler: clang
@@ -87,6 +119,22 @@ jobs:
   - env: DEF_LIB="static"
     arch: arm64
     compiler: gcc
+  - env: DEF_LIB="static" SANITIZE=address
+    arch: arm64
+    compiler: gcc
+    addons:
+      apt:
+        packages:
+          - *required_packages
+          - [libasan4]
+  - env: DEF_LIB="shared" SANITIZE=address
+    arch: arm64
+    compiler: gcc
+    addons:
+      apt:
+        packages:
+          - *required_packages
+          - [libasan4]
   - env: DEF_LIB="shared" RUN_TESTS=1
     arch: arm64
     compiler: gcc
@@ -102,6 +150,22 @@ jobs:
   - env: DEF_LIB="static"
     arch: arm64
     compiler: clang
+  - env: DEF_LIB="static" SANITIZE=address
+    arch: arm64
+    compiler: clang
+    addons:
+      apt:
+        packages:
+          - *required_packages
+          - [libasan4]
+  - env: DEF_LIB="shared" SANITIZE=address
+    arch: arm64
+    compiler: clang
+    addons:
+      apt:
+        packages:
+          - *required_packages
+          - [libasan4]
   - env: DEF_LIB="shared" RUN_TESTS=1
     arch: arm64
     compiler: clang
